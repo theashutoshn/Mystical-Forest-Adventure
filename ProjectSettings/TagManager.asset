@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Reel Frame
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 3856277521
+    locked: 0
+  - name: ReelFrame
+    uniqueID: 1118029879
+    locked: 0
+  - name: SlotImages
+    uniqueID: 2031124265
     locked: 0
