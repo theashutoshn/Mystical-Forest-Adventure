@@ -5,17 +5,14 @@ using System.Collections.Generic;
 public class SlotMachineReel : MonoBehaviour
 {
     public List<Sprite> symbols; // Assign 12 symbol sprites in the Inspector
-    public float spinDuration = 2f;
+    public float spinDuration = 5f;
     public float spinSpeed = 1000f;
-    public int visibleSymbols = 12;
+    public int visibleSymbols = 3;
 
-    public float symbolWidth = 100f;
-    public float symbolHeight = 100f;
-    public float spacing = 10f;
+    public float symbolWidth = 250f;
+    public float symbolHeight = 250f;
+    public float spacing = 20f;
 
-    public Vector2 position1Offset = Vector2.zero; // Offset for Position1 GameObject
-
-    private GameObject position1;
     private List<GameObject> reelObjects;
     private float totalSymbolHeight;
     private bool isSpinning = false;
@@ -27,14 +24,6 @@ public class SlotMachineReel : MonoBehaviour
 
     void InitializeReel()
     {
-        // Create Position1 GameObject
-        position1 = new GameObject("Position1");
-        position1.transform.SetParent(transform, false);
-        RectTransform position1RectTransform = position1.AddComponent<RectTransform>();
-        position1RectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-        position1RectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-        position1RectTransform.anchoredPosition = position1Offset;
-
         reelObjects = new List<GameObject>();
         totalSymbolHeight = symbolHeight + spacing;
 
@@ -42,15 +31,12 @@ public class SlotMachineReel : MonoBehaviour
         for (int i = 0; i < visibleSymbols + 3; i++)
         {
             GameObject symbol = new GameObject("Symbol");
-            symbol.transform.SetParent(position1.transform, false);
+            symbol.transform.SetParent(transform, false);
             RectTransform rectTransform = symbol.AddComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(symbolWidth, symbolHeight);
             symbol.AddComponent<UnityEngine.UI.Image>();
             reelObjects.Add(symbol);
         }
-
-        // Adjust Position1 size
-        position1RectTransform.sizeDelta = new Vector2(symbolWidth, totalSymbolHeight * visibleSymbols - spacing);
 
         ResetReelPosition();
         ShuffleSymbols();
