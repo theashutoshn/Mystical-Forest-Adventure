@@ -13,8 +13,11 @@ public class BetManager : MonoBehaviour
     private const float maxBet = 25.00f; // Maximum bet
     private const float betIncrement = 0.10f; // Increment value for each button press
 
+    
+
     void Start()
     {
+        
         // Initialize the bet count text
         UpdateBetCountText();
         UpdateBalanceText();
@@ -29,6 +32,7 @@ public class BetManager : MonoBehaviour
             betCount += betIncrement;
             UpdateBetCountText();
             UpdateBalanceText();
+            AudioManager.instance.PlayGeneralButtonSound();
         }
     }
 
@@ -40,6 +44,7 @@ public class BetManager : MonoBehaviour
             betCount -= betIncrement;
             UpdateBetCountText();
             UpdateBalanceText();
+            AudioManager.instance.PlayGeneralButtonSound();
         }
     }
 

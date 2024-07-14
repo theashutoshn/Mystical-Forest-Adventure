@@ -16,18 +16,20 @@ public class UIManager : MonoBehaviour
 
     public void DisablePanel()
     {
-        
+        AudioManager.instance.PlayGeneralButtonSound();
         welcomePanel.SetActive(false); // Disable the panel when the continue button is clicked
     }
 
     public void OnTickClick()
     {
+        AudioManager.instance.PlayGeneralButtonSound();
         tickButton.gameObject.SetActive(false);
         untickButton.gameObject.SetActive(true);
     }
     
     public void OnUnTickClick()
     {
+        AudioManager.instance.PlayGeneralButtonSound();
         tickButton.gameObject.SetActive(true);
         untickButton.gameObject.SetActive(false);
     }
