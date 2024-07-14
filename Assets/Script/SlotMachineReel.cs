@@ -70,6 +70,7 @@ public class SlotMachineReel : MonoBehaviour
     IEnumerator SpinReel()
     {
         isSpinning = true;
+        AudioManager.instance.PlayReelSpin();
         float elapsedTime = 0f;
         float startPosition = reelObjects[0].transform.localPosition.y;
 
@@ -99,7 +100,8 @@ public class SlotMachineReel : MonoBehaviour
         {
             symbol.transform.localPosition -= new Vector3(0, offset, 0);
         }
-
+        
+        AudioManager.instance.PlayReelStop();
         isSpinning = false;
     }
 }
