@@ -100,7 +100,6 @@ public class SlotMachineReel : MonoBehaviour
         {
             symbol.transform.localPosition -= new Vector3(0, offset, 0);
         }
-        
         AudioManager.instance.PlayReelStop();
         isSpinning = false;
     }
