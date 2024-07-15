@@ -4,7 +4,8 @@
 All the  assets used in the game are store under the "UIAssets" Folder.
 
 All the C# script are under "Script" folder.
-# 1. AssetPreloader
+
+AssetPreloader:
 This script is designed to preload assets from a 'Resource > UIAssets' folder within the Resources directory and display a progress bar during the loading process.
 
 # 2. AudioManager
