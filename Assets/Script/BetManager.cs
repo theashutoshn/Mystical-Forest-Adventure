@@ -11,20 +11,18 @@ public class BetManager : MonoBehaviour
     private float balanceAmount = 10000.00f;
     private const float minBet = 0.10f; // Minimum bet
     private const float maxBet = 25.00f; // Maximum bet
-    private const float betIncrement = 0.10f; // Increment value for each button press
+    private const float betIncrement = 0.10f; // Increment value
 
     
 
     void Start()
     {
-        
-        // Initialize the bet count text
         UpdateBetCountText();
         UpdateBalanceText();
         
     }
 
-    // Method to increase the bet count
+    
     public void IncreaseBet()
     {
         if (betCount + betIncrement <= maxBet)
@@ -36,7 +34,7 @@ public class BetManager : MonoBehaviour
         }
     }
 
-    // Method to decrease the bet count
+    
     public void DecreaseBet()
     {
         if (betCount - betIncrement >= minBet)
@@ -48,7 +46,7 @@ public class BetManager : MonoBehaviour
         }
     }
 
-    // Method to update the bet count text
+    
     void UpdateBetCountText()
     {
         betCountText.text = betCount.ToString("F2");

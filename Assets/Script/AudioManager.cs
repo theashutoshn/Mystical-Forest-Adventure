@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
     public void PlayReelSpin()
     {
         effectsAudioSource.PlayOneShot(reelSpinClip);
-        effectsAudioSource.loop = true;
+        
     }
 
     public void PlayReelStop()

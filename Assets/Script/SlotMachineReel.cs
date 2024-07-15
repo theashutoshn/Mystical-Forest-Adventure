@@ -27,8 +27,8 @@ public class SlotMachineReel : MonoBehaviour
         reelObjects = new List<GameObject>();
         totalSymbolHeight = symbolHeight + spacing;
 
-        // Create symbols for the reel (visible + extra for smooth looping)
-        for (int i = 0; i < visibleSymbols + 3; i++)
+        
+        for (int i = 0; i < visibleSymbols + 3; i++) // Create symbols for the reel (visible + extra for smooth looping)
         {
             GameObject symbol = new GameObject("Symbol");
             symbol.transform.SetParent(transform, false);
@@ -94,8 +94,8 @@ public class SlotMachineReel : MonoBehaviour
             yield return null;
         }
 
-        // Ensure the reel stops at a proper position
-        float offset = reelObjects[0].transform.localPosition.y % symbolHeight;
+        
+        float offset = reelObjects[0].transform.localPosition.y % symbolHeight; // Ensure the reel stops at a proper position
         foreach (GameObject symbol in reelObjects)
         {
             symbol.transform.localPosition -= new Vector3(0, offset, 0);

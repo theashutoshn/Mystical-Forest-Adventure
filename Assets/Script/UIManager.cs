@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject welcomePanel; // welcome Panel
-    public GameObject[] infoPanels; // welcome Panel
+    public GameObject[] infoPanels; // info Panel
     public Button tickButton;
     public Button untickButton;
 
@@ -16,15 +16,13 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        welcomePanel.SetActive(true); // panel will be visible at start
-
-    
+        welcomePanel.SetActive(true);    
     }
 
-    public void DisablePanel()
+    public void DisableWelcomPanel()
     {
         AudioManager.instance.PlayGeneralButtonSound();
-        welcomePanel.SetActive(false); // Disable the panel when the continue button is clicked
+        welcomePanel.SetActive(false); // Disable the panel when continue button is clicked
         infoPanels[0].SetActive(true);
 
     }
@@ -53,7 +51,6 @@ public class UIManager : MonoBehaviour
             infoPanels[currentPanelIndex].SetActive(true);
         }
 
-        // Update navigation buttons' state
         UpdateNavigationButtons();
     }
 
@@ -67,24 +64,21 @@ public class UIManager : MonoBehaviour
             infoPanels[currentPanelIndex].SetActive(true);
         }
 
-        // Update navigation buttons' state
         UpdateNavigationButtons();
     }
 
 
     private void UpdateNavigationButtons()
     {
-        // Disable left button if on the first panel, otherwise enable it
-        leftButton.gameObject.SetActive(currentPanelIndex > 0);
-
-        // Disable right button if on the last panel, otherwise enable it
-        rightButton.gameObject.SetActive(currentPanelIndex < infoPanels.Length - 1);
+        
+        leftButton.gameObject.SetActive(currentPanelIndex > 0); // Disable left button on 1st panel
+        rightButton.gameObject.SetActive(currentPanelIndex < infoPanels.Length - 1); // Enable right button last panel
     }
 
     public void OnInfoButtonClick()
     {
         AudioManager.instance.PlayGeneralButtonSound();
-        DisablePanel(); // Call the DisablePanel method to activate the panels
+        DisableWelcomPanel(); // Call the Disable welcom panel method to activate the info panels
     }
     public void OnCancelButtonClick()
     {
