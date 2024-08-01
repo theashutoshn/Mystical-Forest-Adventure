@@ -38,7 +38,7 @@ public class AssetPreloader : MonoBehaviour
             progressBarImage.fillAmount = progress;
             yield return null;
         }
-        OnLoadingComplete();
+        //OnLoadingComplete();
     }
 
     private IEnumerator LoadAsset(string assetName)
@@ -47,7 +47,7 @@ public class AssetPreloader : MonoBehaviour
         ResourceRequest request = Resources.LoadAsync(assetName); // asset load from Resoruce folder
         yield return request;
 
-        GameObject asset = request.asset as GameObject;
+        GameObject asset  = request.asset as GameObject;
         if (asset != null)
         {
             Instantiate(asset);
